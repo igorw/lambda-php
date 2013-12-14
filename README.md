@@ -62,6 +62,9 @@ This project consists of a lambda calculus expression parser using
 interpreter based on [Matt Might's implementation in
 scheme](http://matt.might.net/articles/implementing-a-programming-language/).
 
+The interpreter is *call-by-value* which means that recursive calls need to be
+wrapped in a function to prevent them from being evaluated eagerly.
+
 For examples of how to do numbers (church encoding), booleans, arithmetic,
 boolean logic, looping (recursion), etc. look at `example.php`.
 
