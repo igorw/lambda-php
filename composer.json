@@ -1,0 +1,15 @@
+{
+    "name": "igorw/lambda",
+    "description": "Lambda calculus interpreter in PHP.",
+    "keywords": ["lambda", "lambda-calculus"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Wiedler",
+            "email": "igor@wiedler.ch"
+        }
+    ],
+    "autoload": {
+        "files": ["src/lambda.php"]
+    }
+}
