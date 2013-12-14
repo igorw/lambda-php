@@ -6,13 +6,27 @@ use Symfony\Component\Debug\ErrorHandler;
 
 require 'vendor/autoload.php';
 
-function prompt($mode) {
+function prompt($mode)
+{
     echo "$mode> ";
 
     return true;
 }
 
-function format($result) {
+function format_raw($result)
+{
+    ob_start();
+    var_dump($result);
+    return trim(ob_get_clean());
+}
+
+function identity($x)
+{
+    return $x;
+}
+
+function format($result)
+{
     if (is_bool($result)) {
         return json_encode($result);
     }
@@ -25,19 +39,21 @@ $mode = 'i';
 while (prompt($mode) && false !== ($line = fgets(STDIN))) {
     $exp = trim($line);
 
-    if (in_array($exp, ['i', 'b'], true)) {
+    $factories = [
+        'i' => 'igorw\lambda\to_int',
+        'b' => 'igorw\lambda\to_bool',
+        'r' => 'igorw\lambda\identity',
+    ];
+
+    if (in_array($exp, array_keys($factories), true)) {
         $mode = $exp;
         continue;
     }
 
-    $factories = [
-        'i' => 'igorw\lambda\to_int',
-        'b' => 'igorw\lambda\to_bool',
-    ];
-
     try {
         $factory = $factories[$mode];
-        echo format(evaluate($factory(parse($exp))))."\n";
+        $format = __NAMESPACE__.'\\'.('r' === $mode ? 'format_raw' : 'format');
+        echo $format(evaluate($factory(parse($exp))))."\n";
     } catch (\Exception $e) {
         echo $e->getMessage()."\n";
     }
