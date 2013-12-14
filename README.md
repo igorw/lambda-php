@@ -2,7 +2,7 @@
 
 Lambda calculus interpreter in PHP.
 
-## What?
+## Lambda calculus
 
 Lambda calculus is a very minimal programming language that was invented in
 1936 by Alonzo Church. It is the functional equivalent of the Turing Machine.
@@ -51,6 +51,19 @@ explicitly group them in parentheses:
 
 Interestingly, lambda calculus is turing complete. Using just these three
 concepts you can represent *any* computation.
+
+Check out the links at the bottom for more details on how to do stuff in
+lambda calculus.
+
+## Interpreter
+
+This project consists of a lambda calculus expression parser using
+[dissect](https://github.com/jakubledl/dissect), and an *eval-apply*
+interpreter based on [Matt Might's implementation in
+scheme](http://matt.might.net/articles/implementing-a-programming-language/).
+
+For examples of how to do numbers (church encoding), booleans, arithmetic,
+boolean logic, looping (recursion), etc. look at `example.php`.
 
 ## REPL
 
