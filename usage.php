@@ -144,4 +144,5 @@ $null = ['λ', 'p', ['p', ['λ', 'x', ['λ', 'y', $false]]]];
 // var_dump(evaluate(to_bool([[$lte, $one], $two])));
 // var_dump(evaluate(to_bool([[$lte, $two], $one])));
 // var_dump(evaluate(to_int([$fact, $five])));
-var_dump(evaluate(to_int([$fib, call($plus, $five, $two)])));
+// var_dump(evaluate(to_int([$fib, call($plus, $five, $two)])));
+// var_dump(evaluate(parse('(λf.f f) (λf.f f)')));

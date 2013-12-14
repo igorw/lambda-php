@@ -9,7 +9,10 @@
             "email": "igor@wiedler.ch"
         }
     ],
+    "require-dev": {
+        "jakubledl/dissect": "dev-develop"
+    },
     "autoload": {
-        "files": ["src/lambda.php"]
+        "files": ["src/lambda.php", "src/parser.php"]
     }
 }
