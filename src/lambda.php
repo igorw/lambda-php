@@ -73,6 +73,8 @@ function apply($f, $x)
     // evaluate the body of the function
     // by substituting the argument via
     // the environment
+    //
+    // this is also known as beta reduction
     list($_, $arg, $body, $env) = $f;
     return evaluate($body, array_merge($env, [$arg => $x]));
 }
