@@ -3,9 +3,46 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c1c5a384ddb1e5eb494026a30afff36a",
+    "hash": "2666b23b14486d1569fc191d10230262",
     "packages": [
-
+        {
+            "name": "nikic/iter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/iter.git",
+                "reference": "aa33666da6367f0b810256092771139316bbd28f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/iter/zipball/aa33666da6367f0b810256092771139316bbd28f",
+                "reference": "aa33666da6367f0b810256092771139316bbd28f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov",
+                    "email": "nikic@php.net"
+                }
+            ],
+            "description": "Iteration primitives using generators",
+            "keywords": [
+                "functional",
+                "generator",
+                "iterator"
+            ],
+            "time": "2013-11-28 16:20:10"
+        }
     ],
     "packages-dev": [
         {
@@ -69,6 +106,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "nikic/iter": 20,
         "jakubledl/dissect": 20
     },
     "platform": [
