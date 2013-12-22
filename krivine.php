@@ -112,22 +112,28 @@ class Machine
 
     function execute()
     {
+        $machine = $this;
+
+        while ($machine->code) {
+            $machine = $machine->step();
+        }
+
+        return first($this->stack);
+    }
+
+    function step()
+    {
         echo 'code: '.json_encode($this->code)."\n";
         echo 'env: '.json_encode($this->env)."\n";
         echo 'stack: '.json_encode($this->stack)."\n";
         echo "---\n";
-
-        if (!$this->code) {
-            return first($this->stack);
-        }
 
         $inst = first(first($this->code));
         $inst_arg = rest(first($this->code));
 
         $fn = [$this, $inst];
 
-        $machine = $fn($inst_arg, rest($this->code), $this->env, $this->stack);
-        return $machine->execute();
+        return $fn($inst_arg, rest($this->code), $this->env, $this->stack);
     }
 
     function access($args, $code, $env, $stack)
