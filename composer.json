@@ -13,6 +13,6 @@
         "jakubledl/dissect": "dev-develop"
     },
     "autoload": {
-        "files": ["src/eval.php", "src/parser.php", "src/krivine.php"]
+        "files": ["src/eval.php", "src/parser.php", "src/krivine.php", "src/binary.php"]
     }
 }
