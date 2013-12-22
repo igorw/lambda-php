@@ -2,8 +2,6 @@
 
 namespace igorw\lambda\krivine;
 
-use iter;
-
 // (M N, S, E) → (M, (S,(N,E)), E)
 // (λM, (S,N), E) → (M, S, (E,N))
 // (i+1, S, (E,N)) → (i, S, E)
@@ -32,7 +30,7 @@ function inc($value)
 
 function inc_indices($indices)
 {
-    return iter\toArrayWithKeys(iter\map('igorw\lambda\krivine\inc', $indices));
+    return array_map('igorw\lambda\krivine\inc', $indices);
 }
 
 function assoc(array $map, $key, $value)

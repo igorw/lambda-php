@@ -27,7 +27,6 @@ $omega = [['λ', 'f', ['f', 'f']], ['λ', 'f', ['f', 'f']]];
 // var_dump(compile(de_bruijn($identity)));
 // var_dump(evaluate([
 //     ['constant', 5],
-//     ['stop'],
 // ]));
 // var_dump(de_bruijn(
 //     [[['λ', 'x', ['λ', 'y', 'y']], 5], 6]

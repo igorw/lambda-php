@@ -9,9 +9,6 @@
             "email": "igor@wiedler.ch"
         }
     ],
-    "require": {
-        "nikic/iter": "dev-master"
-    },
     "require-dev": {
         "jakubledl/dissect": "dev-develop"
     },
