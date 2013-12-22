@@ -155,7 +155,7 @@ class Machine
     function grab($args, $code, $env, $stack)
     {
         list($code0, $env0) = first($stack);
-        $code0 = $code0 ?: [['unclosed_term']];
+        $code0 = $code0 ?: [];
         $env0 = $env0 ?: [];
 
         array_unshift($env, [$code0, $env0]);
