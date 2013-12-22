@@ -59,17 +59,11 @@ function de_bruijn($exp, $indices = [])
         return ['offset', $indices[$exp]];
     }
 
-    // if ('offset' === first($exp)) {
-    //     return $exp;
-    // }
-
     if ('λ' === first($exp)) {
         list($_, $arg, $body) = $exp;
 
         $indices = inc_indices($indices);
         $indices = assoc($indices, $arg, 1);
-
-        // echo 'body: '.json_encode($body, JSON_UNESCAPED_UNICODE)."\n";
 
         return ['λ', de_bruijn($body, $indices)];
     }
@@ -193,6 +187,10 @@ $s = ['λ', 'x', ['λ', 'y', ['λ', 'z', [['x', 'z'], ['y', 'z']]]]];
 // λ (λ 1 (λ 1)) (λ 2 1)
 $x = ['λ', 'z', [['λ', 'y', ['y', ['λ', 'x', 'x']]], ['λ', 'x', ['z', 'x']]]];
 
+// omega: loops forever
+// (λf.f f) (λf.f f)
+$omega = [['λ', 'f', ['f', 'f']], ['λ', 'f', ['f', 'f']]];
+
 // var_dump(de_bruijn($identity));
 // var_dump(de_bruijn($k));
 // var_dump(de_bruijn($s));
@@ -211,4 +209,6 @@ $x = ['λ', 'z', [['λ', 'y', ['y', ['λ', 'x', 'x']]], ['λ', 'x', ['z', 'x']]]
 // var_dump(evaluate(compile(de_bruijn(
 //     [[['λ', 'x', ['λ', 'y', 'y']], 5], 6]
 // ))));
-// var_dump(evaluate(compile([de_bruijn($identity), 42])));
+// var_dump(evaluate(compile(de_bruijn([$identity, 42]))));
+// var_dump(evaluate(compile(de_bruijn([$k, 42]))));
+// var_dump(evaluate(compile(de_bruijn($omega))));
