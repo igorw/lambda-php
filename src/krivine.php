@@ -129,6 +129,10 @@ class Machine
 
         $fn = [$this, $inst];
 
+        if (!is_callable($fn)) {
+            throw new \RuntimeException("Invalid instruction '$inst'");
+        }
+
         return $fn($inst_arg, rest($this->code), $this->env, $this->stack);
     }
 
@@ -151,6 +155,9 @@ class Machine
     function grab($args, $code, $env, $stack)
     {
         list($code0, $env0) = first($stack);
+        $code0 = $code0 ?: [['unclosed_term']];
+        $env0 = $env0 ?: [];
+
         array_unshift($env, [$code0, $env0]);
 
         return new Machine($code, $env, rest($stack));
