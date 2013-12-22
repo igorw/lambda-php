@@ -82,7 +82,7 @@ function de_bruijn($exp, $indices = [])
 function compile($exp)
 {
     if (is_int($exp) || is_float($exp) || is_bool($exp)) {
-        return [['constant', $exp], ['stop']];
+        return [['constant', $exp]];
     }
 
     if (is_object($exp) && is_callable($exp)) {
@@ -96,7 +96,7 @@ function compile($exp)
 
     if ('offset' === first($exp)) {
         list($_, $offset) = $exp;
-        return [['access', $offset], ['continue_']];
+        return [['access', $offset]];
     }
 
     $f = first($exp);
@@ -124,7 +124,7 @@ class Machine
         echo "---\n";
 
         if (!$this->code) {
-            throw new \RuntimeException('Reached end of code stream.');
+            return first($this->stack);
         }
 
         $inst = first(first($this->code));
@@ -133,20 +133,15 @@ class Machine
         $fn = [$this, $inst];
 
         $machine = $fn($inst_arg, rest($this->code), $this->env, $this->stack);
-
-        if (!$machine instanceof Machine) {
-            return $machine;
-        }
-
         return $machine->execute();
     }
 
     function access($args, $code, $env, $stack)
     {
         $i = first($args) - 1;
-        array_unshift($stack, first($env[$i]));
+        list($c_code, $c_env) = $env[$i];
 
-        return new Machine($code, $env, $stack);
+        return new Machine($c_code, $c_env, $stack);
     }
 
     function push($args, $code, $env, $stack)
@@ -173,23 +168,11 @@ class Machine
         return new Machine($code, $env, $stack);
     }
 
-    function continue_($args, $code, $env, $stack)
-    {
-        list($c_code, $c_env) = first($stack);
-
-        return new Machine([$c_code], $c_env, rest($stack));
-    }
-
-    function stop($args, $code, $env, $stack)
-    {
-        return first($stack);
-    }
-
-    function call($args, $code, $env, $stack)
-    {
-        $f = first($args);
-        return $f($code, $env, $stack);
-    }
+    // function call($args, $code, $env, $stack)
+    // {
+    //     $f = first($args);
+    //     return $f($code, $env, $stack);
+    // }
 }
 
 function evaluate(array $ops)
@@ -225,7 +208,7 @@ $x = ['λ', 'z', [['λ', 'y', ['y', ['λ', 'x', 'x']]], ['λ', 'x', ['z', 'x']]]
 // var_dump(compile(de_bruijn(
 //     [[['λ', 'x', ['λ', 'y', 'y']], 5], 6]
 // )));
-var_dump(evaluate(compile(de_bruijn(
-    [[['λ', 'x', ['λ', 'y', 'y']], 5], 6]
-))));
-// var_dump(evaluate(compile(de_bruijn($identity))));
+// var_dump(evaluate(compile(de_bruijn(
+//     [[['λ', 'x', ['λ', 'y', 'y']], 5], 6]
+// ))));
+// var_dump(evaluate(compile([de_bruijn($identity), 42])));
