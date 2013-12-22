@@ -119,10 +119,10 @@ class Machine
 
     function step()
     {
-        echo 'code: '.json_encode($this->code)."\n";
-        echo 'env: '.json_encode($this->env)."\n";
-        echo 'stack: '.json_encode($this->stack)."\n";
-        echo "---\n";
+        // echo 'code: '.json_encode($this->code)."\n";
+        // echo 'env: '.json_encode($this->env)."\n";
+        // echo 'stack: '.json_encode($this->stack)."\n";
+        // echo "---\n";
 
         $inst = first(first($this->code));
         $inst_arg = rest(first($this->code));
