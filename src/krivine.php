@@ -114,7 +114,7 @@ class Machine
             $machine = $machine->step();
         }
 
-        return first($this->stack);
+        return first($machine->stack);
     }
 
     function step()
