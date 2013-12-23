@@ -106,19 +106,24 @@ Or `r` for raw mode:
       }
     }
 
-## Further reading
-
-* [Lambda Calculus - Wikipedia](http://en.wikipedia.org/wiki/Lambda_calculus)
-* [Matt Might: 7 lines of code, 3 minutes](http://matt.might.net/articles/implementing-a-programming-language/)
-* [Tom Stuart: Programming with Nothing](http://codon.com/programming-with-nothing)
-* [Erkki Lindpere: Parsing Lambda Calculus in Scala](http://zeroturnaround.com/rebellabs/parsing-lambda-calculus-in-scala/)
-
 ## References
 
+* [Matt Might: 7 lines of code, 3 minutes](http://matt.might.net/articles/implementing-a-programming-language/)
+* [Tom Stuart: Programming with Nothing](http://codon.com/programming-with-nothing)
 * [Jean-Louis Krivine: A call-by-name lambda-calculus machine](http://www.pps.univ-paris-diderot.fr/~krivine/articles/lazymach.pdf)
 * [Rémi Douence, Pascal Fradet: The Next 700 Krivine Machines](http://pop-art.inrialpes.fr/~fradet/PDFs/HOSC07.pdf)
 * [Xavier Leroy: The Zinc Experiment](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.43.6772)
 * [John Tromp: Binary Lambda Calculus and Combinatory Logic](http://homepages.cwi.nl/~tromp/cl/LC.pdf)
 * [John Tromp: Binary Lambda Calculus interpreter for IOCCC](http://www.ioccc.org/2012/tromp/hint.html)
+* [Erkki Lindpere: Parsing Lambda Calculus in Scala](http://zeroturnaround.com/rebellabs/parsing-lambda-calculus-in-scala/)
 * [Binary Lambda Calculus in Python](https://github.com/sdiehl/bnlc)
 * [Krivine Machine in Scheme](https://github.com/ympbyc/Carrot)
+* [Algorithmic Information Theory in Haskell](https://github.com/tromp/AIT)
+* [Lambda Calculus - Wikipedia](http://en.wikipedia.org/wiki/Lambda_calculus)
+* [Binary Lambda Calculus - Wikipedia](http://en.wikipedia.org/wiki/Binary_lambda_calculus)
+* [De Bruijn index - Wikipedia](http://en.wikipedia.org/wiki/De_Bruijn_index)
+
+## Thanks to
+
+* [@ympbyc](https://twitter.com/ympbyc)
+* [@smdiehl](https://twitter.com/smdiehl)
