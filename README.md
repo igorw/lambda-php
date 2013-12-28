@@ -94,17 +94,7 @@ Or `r` for raw mode:
     $ php repl.php
     i> r
     r> λx.x
-    array(4) {
-      [0]=>
-      string(2) "λ"
-      [1]=>
-      string(1) "x"
-      [2]=>
-      string(1) "x"
-      [3]=>
-      array(0) {
-      }
-    }
+    λx.x
 
 ## References
 

@@ -15,9 +15,7 @@ function prompt($mode)
 
 function format_raw($result)
 {
-    ob_start();
-    var_dump($result);
-    return trim(ob_get_clean());
+    return dump($result);
 }
 
 function identity($x)
