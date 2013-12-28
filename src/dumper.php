@@ -14,7 +14,7 @@ function dump($exp)
     }
 
     list($f, $arg) = $exp;
-    return dump($f).(is_application($arg) ? '('.dump($arg).')' : dump($arg));
+    return dump($f).' '.(is_application($arg) ? '('.dump($arg).')' : dump($arg));
 }
 
 function is_application($exp)
