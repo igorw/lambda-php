@@ -45,7 +45,7 @@ foreach (['b', 'r'] as $flag) {
 
 $interactive = true;
 
-if (in_array("-n", $argv, true)) {
+if (in_array('-n', $argv, true)) {
     $interactive = false;
 }
 
