@@ -34,6 +34,13 @@ function format($result)
 
 $mode = 'i';
 
+foreach (['b', 'r'] as $flag) {
+    if (in_array("-$flag", $argv, true)) {
+        $mode = $flag;
+        break;
+    }
+}
+
 while (prompt($mode) && false !== ($line = fgets(STDIN))) {
     $exp = trim($line);
 
