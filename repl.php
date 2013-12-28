@@ -6,9 +6,11 @@ use Symfony\Component\Debug\ErrorHandler;
 
 require 'vendor/autoload.php';
 
-function prompt($mode)
+function prompt($mode, $interactive)
 {
-    echo "$mode> ";
+    if ($interactive) {
+        echo "$mode> ";
+    }
 
     return true;
 }
@@ -41,7 +43,13 @@ foreach (['b', 'r'] as $flag) {
     }
 }
 
-while (prompt($mode) && false !== ($line = fgets(STDIN))) {
+$interactive = true;
+
+if (in_array("-n", $argv, true)) {
+    $interactive = false;
+}
+
+while (prompt($mode, $interactive) && false !== ($line = fgets(STDIN))) {
     $exp = trim($line);
 
     $factories = [
@@ -64,4 +72,6 @@ while (prompt($mode) && false !== ($line = fgets(STDIN))) {
     }
 }
 
-echo "\n";
+if ($interactive) {
+    echo "\n";
+}
