@@ -96,6 +96,17 @@ Or `r` for raw mode:
     r> λx.x
     λx.x
 
+## WIP
+
+A few things are still a work in progress:
+
+* **Krivine machine:** This alternate interpreter would allow call-by-need
+  and indexing into de-bruijn indices, which is needed by...
+
+* **Binary lambda calculus:** Allows encoding lambda calculus programs in
+  binary form which produces extremely small programs. This also defines an
+  I/O mechanism.
+
 ## References
 
 * [Matt Might: 7 lines of code, 3 minutes](http://matt.might.net/articles/implementing-a-programming-language/)
