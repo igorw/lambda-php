@@ -1,5 +1,7 @@
 # lambda-php
 
+![reduce forever](doc/reduce-forever.png)
+
 Lambda calculus interpreter in PHP.
 
 ## Lambda calculus
