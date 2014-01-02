@@ -14,10 +14,18 @@ function dump($exp)
     }
 
     list($f, $arg) = $exp;
-    return dump($f).' '.(is_application($arg) ? '('.dump($arg).')' : dump($arg));
+    $f = is_abs($f) ? '('.dump($f).')' : dump($f);
+    $arg = is_app($arg) || is_abs($arg) ? '('.dump($arg).')' : dump($arg);
+    return $f.' '.$arg;
 }
 
-function is_application($exp)
+function is_abs($exp)
+{
+    return is_array($exp)
+        && 'λ' === first($exp);
+}
+
+function is_app($exp)
 {
     return is_array($exp)
         && 'λ' !== first($exp)
