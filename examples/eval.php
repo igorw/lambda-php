@@ -44,6 +44,10 @@ $sub = ['λ', 'm', ['λ', 'n', [['n', $pred], 'm']]];
 // λm.λn.λf.m (n f)
 $mult = ['λ', 'm', ['λ', 'n', ['λ', 'f', ['m', ['n', 'f']]]]];
 
+// exp
+// λm.λn.n m
+$exp = ['λ', 'm', ['λ', 'n', ['n', 'm']]];
+
 // Y combinator, recursion
 // does not work due to call-by-value, it loops forever
 // λf.(λx.f (x x)) (λx.f (x x))
@@ -146,3 +150,4 @@ $null = ['λ', 'p', ['p', ['λ', 'x', ['λ', 'y', $false]]]];
 // var_dump(evaluate(to_int([$fact, $five])));
 // var_dump(evaluate(to_int([$fib, call($plus, $five, $two)])));
 // var_dump(evaluate(parse('(λf.f f) (λf.f f)')));
+// var_dump(evaluate(to_int(call($exp, $two, $three))));
