@@ -86,6 +86,15 @@ function lazy($exp, $x = 'x')
     return ['λ', $x, [$exp, $x]];
 }
 
+function let(array $bindings, $body)
+{
+    foreach (array_reverse($bindings) as $name => $value) {
+        $body = call(['λ', $name, $body], $value);
+    }
+
+    return $body;
+}
+
 function to_int($exp)
 {
     $inc = function ($n) {
