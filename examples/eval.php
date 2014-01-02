@@ -155,5 +155,9 @@ $null = ['λ', 'p', ['p', ['λ', 'x', ['λ', 'y', $false]]]];
 //     call($sub,
 //          call($exp,
 //               $two,
-//               call($mult, $two, $five)),
-//          call($mult, $two, $five)))));
+//               call($plus,
+//                    call($mult, $two, $five),
+//                    $one)),
+//          call($plus,
+//               call($exp, $two, $five),
+//               $two)))));
