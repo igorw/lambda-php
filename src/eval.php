@@ -37,12 +37,12 @@ function evaluate($exp, array $env = [])
         return $env[$exp];
     }
 
-    // procedure 'object'
-    // encoded as a 4-tuple of [λ, arg, body, env]
+    // closure 'object'
+    // encoded as a 4-tuple of ['closure', arg, body, env]
     // this is what is passed to apply
     if ('λ' === first($exp)) {
         list($_, $arg, $body) = $exp;
-        return ['λ', $arg, $body, $env];
+        return ['closure', $arg, $body, $env];
     }
 
     // function application
